@@ -43,7 +43,6 @@ Enter the following play definition into `bigip-info.yml`:
 
 Next, add the first `task`. This task will use the `purefa_info` module to grab useful information from the Pure Storage FlashArray.
 
-{% raw %}
 ``` yaml
   tasks:
     - name: COLLECT FLASHARRAY FACTS
@@ -52,7 +51,6 @@ Next, add the first `task`. This task will use the `purefa_info` module to grab 
           - minimum
       register: array_facts
 ```
-{% endraw %}
 
 >A play is a list of tasks. Tasks and modules have a 1:1 correlation.  Ansible modules are reusable, standalone scripts that can be used by the Ansible API, or by the ansible or ansible-playbook programs. They return information to ansible by printing a JSON string to stdout before exiting.
 
@@ -65,13 +63,11 @@ Next, add the first `task`. This task will use the `purefa_info` module to grab 
 
 Next, append the second `task` to above . This task will use the `debug` module to print the output from array_facts variable we registered the facts to.
 
-{% raw %}
 ```yaml
     - name: DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION
       debug:
         var: array_facts
 ```
-{% endraw %}
 
 - The `name: DISPALY COMPLETE FLASHARRAY MINIMUM INFORMATION` is a user defined description that will display in the terminal output.
 - `debug:` tells the task to use the debug module.
@@ -153,7 +149,6 @@ localhost                  : ok=2    changed=0    unreachable=0    failed=0    s
 
 Finally let's append two more tasks to get more specific info from facts gathered, to the above playbook.
 
-{% raw %}
 ```yaml
 
     - name: DISPLAY ONLY THE FLASHARRAY MODEL
@@ -164,7 +159,6 @@ Finally let's append two more tasks to get more specific info from facts gathere
       debug:
         var: array_facts['purefa_info']['default']['purity_version']
 ```
-{% endraw %}
 
 - `var: array_facts['purefa_info']['default']['array_model']` displays the model name for the FlashArray
 - `array_facts['purefa_info']['default']['purity_version']` displays the Purity version for the FlashArray
@@ -183,7 +177,6 @@ Run the playbook - Save the file and execute the following:
 
 The output will look as follows.
 
-{% raw %}
 ```yaml
 [student1@ansible ~]$ ansible-playbook purefa-info.yml
 
@@ -255,7 +248,6 @@ ok: [localhost] => {
 PLAY RECAP ********************************************************************************************************
 localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ```
-{% endraw %}
 
 # Solution
 
