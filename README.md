@@ -11,14 +11,14 @@ This content is a toolit for demonstrating Ansible's capabilities on the Pure St
 
 ## Section 2 - Ansible FlashArray Advanced Exercises
 
- - [Exercise 2.0 - Connecting two FlashArrays for replication]
- - [Exercise 2.1 - Configuring FlashArray Networking]
- - [Exervcse 2.2 - Configure ActiveCluster pods]
- - [Exercise 2.3 - Configuring FlashArray replication schedules]
- - [Exercise 2.4 - Configuring common infrastructure settings on a FlashArray]
+ - [Exercise 2.0 - Connecting two FlashArrays for replication](2.0-connect-arrays)
+ - [Exercise 2.1 - Configuring FlashArray Networking](2.1-networking)
+ - [Exervcse 2.2 - Configure ActiveCluster pods](2.2-pods)
+ - [Exercise 2.3 - Configuring FlashArray replication schedules](2.3-schedule)
+ - [Exercise 2.4 - Configuring common infrastructure settings on a FlashArray](2.4-infra)
 
 ## Section 3 - Ansible FlashArray FA-Files Exercises
 
- - [Exercise 3.0 - Creating directories and exports on a FlashArray]
- - [Exercise 3.1 - Configuring FA-Files DNS on a FlashArray]
- - [Exercise 3.2 - Configuring FA-Files replication]
+ - [Exercise 3.0 - Creating directories and exports on a FlashArray](3.0-exports)
+ - [Exercise 3.1 - Configuring FA-Files DNS on a FlashArray](3.1-files-dns)
+ - [Exercise 3.2 - Configuring FA-Files replication](3.2-files-replication)

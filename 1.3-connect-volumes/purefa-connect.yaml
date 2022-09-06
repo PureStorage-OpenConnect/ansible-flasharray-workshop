@@ -6,14 +6,11 @@
   vars:
     url: 10.34.56.233
     api: 89a9356f-c203-d263-8a89-c229486a13ba
+    vol: volume_a
   tasks:
     - name: CONNECT VOLUMES
       purestorage.flasharray.purefa_host:
         name: "{{ ansible_hostname }}"
-        volume: volume_{{ item }}
+        volume: "{{ vol }}"
         fa_url: "{{ url }}"
         api_token: "{{ api }}"
-      loop:
-       - a
-       - b
-       - c
