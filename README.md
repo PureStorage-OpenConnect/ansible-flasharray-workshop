@@ -17,7 +17,7 @@ This content is a toolit for demonstrating Ansible's capabilities on the Pure St
  - [Exercise 2.3 - Configuring FlashArray replication schedules]
  - [Exercise 2.4 - Configuring common infrastructure settings on a FlashArray]
 
-## Section 3 - Ansible FlashArray FA-Files Exercise
+## Section 3 - Ansible FlashArray FA-Files Exercises
 
  - [Exercise 3.0 - Creating directories and exports on a FlashArray]
  - [Exercise 3.1 - Configuring FA-Files DNS on a FlashArray]
