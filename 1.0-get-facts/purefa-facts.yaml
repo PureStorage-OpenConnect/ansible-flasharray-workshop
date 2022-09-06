@@ -3,23 +3,28 @@
   hosts: localhost
   connection: local
   gather_facts: false
+  vars:
+    url: 10.34.56.233
+    api: 89a9356f-c203-d263-8a89-c229486a13ba
   tasks:
     - name: COLLECT FLASHARRAY FACTS
       purestorage.flasharray.purefa_info:
         gather_subset:
           - minimum
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
       register: array_facts
 
     - name: DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION
-      debug:
+      ansible.builtin.debug:
         var: array_facts
 
     - name: DISPLAY ONLY THE FLASHARRAY MODEL
-      debug:
+      ansible.builtin.debug:
         var: array_facts['purefa_info']['default']['array_model']
 
     - name: DISPLAY ONLY THE PURITY VERSION
-      debug:
+      ansible.builtin.debug:
         var: array_facts['purefa_info']['default']['purity_version']
 
 

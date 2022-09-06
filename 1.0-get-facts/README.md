@@ -19,27 +19,34 @@ Make sure you are in the home directory.
 
 ## Step 1:
 
-Using vi/vim, or your favourite text editor, create a new file called `purefa-info.yaml`.
+Using your favourite text editor, such as `vi`/`vim` or `nano`, create a new file called `purefa-info.yaml`.
 
 ## Step 2:
 
 Ansible playbooks are **YAML** files. YAML is a structured encoding format that is also extremely human readable (unlike it's subset - the JSON format).
 
-Enter the following play definition into `bigip-info.yml`:
+Enter the following play definition into `purefa-info.yml`:
 
 ``` yaml
 ---
 - name: GRAB FA FACTS
   hosts: localhost
+  connection: local
   gather_facts: false
+  vars:
+    url: 10.34.56.233
+    api: 89a9356f-c203-d263-8a89-c229486a13ba
 ```
 
 - The `---` at the top of the file indicates that this is a YAML file.
-- The `hosts: localhost`,  indicates the play is run on the current host.
+- The `hosts: localhost`, indicates the play is run on the current host.
+- `connection: local` tells the Playbook to run locally (rather than SSHing to itself)
 - `gather_facts: no` disables facts gathering.  
+- The `vars:` parameter is a group of parameters to be used in the playbook.
+- `url: 10.34.56.233` is the management IP address of your FlashArray - change this reflect your local environment.
+- `api: 89a9356f-c203-d263-8a89-c229486a13ba` is the API token for a user on the FlashArra - change this reflect your local environment.
 
-
-## Step 3
+## Step 3:
 
 Next, add the first `task`. This task will use the `purefa_info` module to grab useful information from the Pure Storage FlashArray.
 
@@ -49,6 +56,8 @@ Next, add the first `task`. This task will use the `purefa_info` module to grab 
       purestorage.flasharray.purefa_info:
         gather_subset:
           - minimum
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
       register: array_facts
 ```
 
@@ -57,25 +66,27 @@ Next, add the first `task`. This task will use the `purefa_info` module to grab 
 - `name: COLLECT FLASHARRAY FACTS` is a user defined description that will display in the terminal output.
 - `purefa_info:` tells the task which module to use.  Everything except `register` is a module parameter defined on the module documentation page.
 - The `gather_subset: minimum` parameter tells the module only to minimum/default array information.
+- The `fa_url: "{{url}}"` parameter tells the module to connect to the FlashArray Management IP address, which is stored as a variable `url` defined in the `vars` section of the playbook.
+- The `api_token: "{{api}}"` parameter tells the module to connect to the FlashArray using this API token, which is stored as a variable `api` defined in the `vars` section of the playbook.
 - `register: array_facts` tells the task to save the output to a variable `array_facts`.
 
-## Step 4
+## Step 4:
 
 Next, append the second `task` to above . This task will use the `debug` module to print the output from array_facts variable we registered the facts to.
 
 ```yaml
     - name: DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION
-      debug:
+      ansible.builtin.debug:
         var: array_facts
 ```
 
-- The `name: DISPALY COMPLETE FLASHARRAY MINIMUM INFORMATION` is a user defined description that will display in the terminal output.
+- The `name: DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION` is a user defined description that will display in the terminal output.
 - `debug:` tells the task to use the debug module.
 - The `var: array_facts` parameter tells the module to display the variable array_facts.
 
 Save the file and exit out of editor.
 
-## Step 5
+## Step 5:
 
 Run the playbook - Execute the following:
 
@@ -145,18 +156,18 @@ ok: [localhost] => {
 PLAY RECAP ********************************************************************************************************
 localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ```
-## Step 6
+## Step 6:
 
 Finally let's append two more tasks to get more specific info from facts gathered, to the above playbook.
 
 ```yaml
 
     - name: DISPLAY ONLY THE FLASHARRAY MODEL
-      debug:
+      ansible.builtin.debug:
         var: array_facts['purefa_info']['default']['array_model']
 
     - name: DISPLAY ONLY THE PURITY VERSION
-      debug:
+      ansible.builtin.debug:
         var: array_facts['purefa_info']['default']['purity_version']
 ```
 
@@ -165,7 +176,7 @@ Finally let's append two more tasks to get more specific info from facts gathere
 
 >Because the purefa_info module returns useful information in structured data, it is really easy to grab specific information without using regex or filters.  Fact modules are very powerful tools to grab specific device information that can be used in subsequent tasks, or even used to create dynamic documentation (reports, csv files, markdown).
 
-## Step 7
+## Step 7:
 
 Run the playbook - Save the file and execute the following:
 
@@ -185,7 +196,7 @@ PLAY [GRAB FLASHARRAY FACTS] ***************************************************
 TASK [COLLECT FLASHARRAY FACTS] ***********************************************************************************
 ok: [localhost]
 
-TASK [DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION] *****************************************************************
+TASK [DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION] *****************************************************************
 ok: [localhost] => {
     "array_facts": {
         "changed": false,
@@ -251,7 +262,7 @@ localhost                  : ok=4    changed=0    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here for an Answer key.  Click here for [purefa-info.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/1.0-get-facts/purefa-facts.yaml).
+The finished Ansible Playbook is provided here: [purefa-info.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/1.0-get-facts/purefa-facts.yaml).
 
 # Going Further
 
@@ -259,7 +270,7 @@ For this bonus exercise add the `tags: debug` parameter (at the task level) to t
 
 ```yaml
     - name: DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION
-      debug:
+      ansible.builtin.debug:
         var: array_facts
       tags: debug
 ```
