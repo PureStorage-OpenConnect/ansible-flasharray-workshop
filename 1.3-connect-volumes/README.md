@@ -1,4 +1,4 @@
-# Exercise 1.2 - Connecting volumes to a host on a FlashArray
+# Exercise 1.3 - Connecting volumes to a host on a FlashArray
 
 ## Table of Contents
 
