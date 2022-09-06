@@ -1,0 +1,19 @@
+---
+- name: VOLUME SETUP
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    url: 10.34.56.233
+    api: 89a9356f-c203-d263-8a89-c229486a13ba
+  tasks:
+    - name: CREATE VOLUMES
+      purestorage.flasharray.purefa_volume:
+        name: volume_{{ item }}
+        size: 32G
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
+      loop:
+       - a
+       - b
+       - c
