@@ -1,0 +1,25 @@
+---
+- name: GRAB FLASHARRAY FACTS
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: COLLECT FLASHARRAY FACTS
+      purestorage.flasharray.purefa_info:
+        gather_subset:
+          - minimum
+      register: array_facts
+
+    - name: DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION
+      debug:
+        var: array_facts
+
+    - name: DISPLAY ONLY THE FLASHARRAY MODEL
+      debug:
+        var: array_facts['purefa_info']['default']['array_model']
+
+    - name: DISPLAY ONLY THE PURITY VERSION
+      debug:
+        var: array_facts['purefa_info']['default']['purity_version']
+
+
