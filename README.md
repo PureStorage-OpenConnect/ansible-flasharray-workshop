@@ -19,6 +19,8 @@ This content is a toolit for demonstrating Ansible's capabilities on the Pure St
 
 ## Section 3 - Ansible FlashArray FA-Files Exercises
 
+This section requires that your FlashArray has been enabled by Pure Support to use FA-Files.
+
  - [Exercise 3.0 - Creating directories and exports on a FlashArray](3.0-exports)
  - [Exercise 3.1 - Configuring FA-Files DNS on a FlashArray](3.1-files-dns)
  - [Exercise 3.2 - Configuring FA-Files replication](3.2-files-replication)
