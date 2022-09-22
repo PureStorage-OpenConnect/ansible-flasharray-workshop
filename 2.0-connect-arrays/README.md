@@ -7,7 +7,6 @@
 - [Playbook Output](#playbook-outbook)
 - [Solution](#solution)
 - [Verifying the Solution](#verifying-the-solution)
-- [Going Further](#going-further)
 
 # Objective
 

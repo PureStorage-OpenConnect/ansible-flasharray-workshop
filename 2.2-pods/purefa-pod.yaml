@@ -1,0 +1,21 @@
+---
+- name: ACTIVECLUSTER POD
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    url: 10.34.56.233
+    api: 89a9356f-c203-d263-8a89-c229486a13ba
+  tasks:
+    - name: CREATE POD
+      purestorage.flasharray.purefa_pod:
+        name: pod-1
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
+
+    - name: STRETCH POD
+      purestorage.flasharray.purefa_pod:
+        name: pod-1
+        stretch: <<target_array_name>>
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
