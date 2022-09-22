@@ -24,6 +24,6 @@
     - name: STRETCH POD
       purestorage.flasharray.purefa_pod:
         name: pod-1
-        stretch: "{{ target_array['purefa_info']['default']['array_name'] }}"
+        stretch: "{{ target_info['purefa_info']['default']['array_name'] }}"
         fa_url: "{{ url }}"
         api_token: "{{ api }}"
