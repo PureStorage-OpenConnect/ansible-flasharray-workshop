@@ -1,4 +1,4 @@
-# Exercise 2.2 - Configure ActiveCluster pods
+# Exercise 2.2 - Configure asynchronous replication
 
 ## Table of Contents
 
@@ -11,21 +11,21 @@
 
 # Objective
 
-Demonstrate the use of the [purefa_pod module](https://docs.ansible.com/ansible/latest/collections/purestorage/flasharray/purefa_pod_module.html) to create an ActiveCluster replication pod and then stretch that pod across two connected FlashArrays.
+Demonstrate the use of the [purefa_pg module](https://docs.ansible.com/ansible/latest/collections/purestorage/flasharray/purefa_pg_module.html) to configure the Protection Group created in [Exercise 1.4](https://github.com/PureStorage-OpenConnect/ansible-flasharray-workshop/blob/master/1.4-pgroup) to replicate to the array connected in [Exercise 2.0](https://github.com/PureStorage-OpenConnect/ansible-flasharray-workshop/blob/master/2.0-connect-arrays).
 
 # Guide
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-pod.yaml`.
+Using the text editor, create a new file called `purefa-async.yaml`.
 
 ## Step 2:
 
-Enter the following play definition into `purefa-pod.yml`:
+Enter the following play definition into `purefa-async.yml`:
 
 ``` yaml
 ---
-- name: ACTIVECLUSTER POD
+- name: ASYNC SETUP
   hosts: localhost
   connection: local
   gather_facts: true
@@ -44,28 +44,22 @@ Enter the following play definition into `purefa-pod.yml`:
 
 ## Step 3:
 
-Next, add the following `tasks` to the playbook. These tasks will use the `purefa_pod` module to initially create a new ActiveCluster pod and then stretch it to the target FlashArray.
+Next, add the following `task` to the playbook. This tasks will use the `purefa_pg` module to start replication of a protection group asynchronously to connected FlashArray.
 
 ``` yaml
   tasks:
-    - name: CREATE POD
-      purestorage.flasharray.purefa_pod:
-        name: pod-1
-        fa_url: "{{ url }}"
-        api_token: "{{ api }}"
-
-    - name: STRETCH POD
-      purestorage.flasharray.purefa_pod:
-        name: pod-1
-        stretch: <<target_array_name>>
+    - name: UPDATE PG
+      purestorage.flasharray.purefa_pg:
+        name: workshop-pg
+        target: <<target array name>>
         fa_url: "{{ url }}"
         api_token: "{{ api }}"
 ```
 
-- `name: CREATE POD | STRETCH POD` is a user defined description that will display in the terminal output.
-- `purefa_pod:` tells the task which module to use.
+- `name: UPDATE PG` is a user defined description that will display in the terminal output.
+- `purefa_pg:` tells the task which module to use.
 - The `name` parameter tells the module the name of the pod to either create or work with if the pod already exists..
-- The `stretch` parameter is the name of the connected target array that the pod is to be stretched to. This name must exactly match the target name shown in the source arrays Array Connections list.
+- The `target` parameter is the name of the connected target array that the protection group is to replicate to. This name must exactly match the target name shown in the source arrays Array Connections list.
 - The `fa_url: "{{url}}"` parameter tells the module to connect to the FlashArray Management IP address, which is stored as a variable `url` defined in the `vars` section of the playbook. This makes this array the source array in the replication pair.
 - The `api_token: "{{api}}"` parameter tells the module to connect to the FlashArray using this API token, which is stored as a variable `api` defined in the `vars` section of the playbook.
 
@@ -76,7 +70,7 @@ Save the file and exit out of the editor.
 Run the playbook - Execute the following:
 
 ```
-[student1@ansible ~]$ ansible-playbook purefa-pod.yml
+[student1@ansible ~]$ ansible-playbook purefa-async.yml
 ```
 
 # Playbook Output
@@ -84,38 +78,33 @@ Run the playbook - Execute the following:
 The output will look as follows.
 
 ```yaml
-[student1@ansible ~]$ ansible-playbook purefa-pod.yml
+[student1@ansible ~]$ ansible-playbook purefa-async.yml
 
-PLAY [ACTIVECLUSTER POD] ************************************************************************************************
+PLAY [ASYNC SETUP] ******************************************************************************************************
 
 TASK [Gathering Facts] **************************************************************************************************
 ok: [localhost]
 
-TASK [CREATE POD] *******************************************************************************************************
-changed: [localhost]
-
-TASK [STRETCH POD] ******************************************************************************************************
+TASK [UPDATE PG] ********************************************************************************************************
 changed: [localhost]
 
 PLAY RECAP **************************************************************************************************************
-localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-pod.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.2-pod/purefa-pod.yaml).
+The finished Ansible Playbook is provided here: [purefa-async.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.3-async-rep/purefa-async.yaml).
 
 # Verifying the Solution
 
 Login to the source Pure Storage FlashArray with your web browser using the management IP address you set in your YAML file.
 
-Navigate to the Storage -> Pods window to see the array connections that have been created from the source side of the connections.
-
-Notice that the Array filed contains both the source and target array names indicating the pod has successfully stretched.
+Navigate to the Protection -> Protection Groups window and select the Source Protection Group `workshop-pg` to see the target array has been configured.
 
 # Going Further
 
-In the pod stretch task you were required to know the exact name of the target array to which the pod was being stretched.
+In the update pg task you were required to know the exact name of the target array to which the pod was being stretched.
 
 To assist in making this process more automated you can perform a `purefa_info` task on the target array and use the response from this to find the array name automatically and use this in the stretch task.
 
@@ -137,12 +126,12 @@ Replace the second task in your YAML file, the pod stretch task, with the follow
         api_token: "{{ target_api }}"
       register: target_array
 
-    - name: STRETCH POD
-      purestorage.flasharray.purefa_pod:
-        name: pod-1
-        stretch: "{{ target_array['purefa_info']['default']['array_name'] }}"
+    - name: UPDATE PG
+      purestorage.flasharray.purefa_pg:
+        name: workshop-pg
+        target: "{{ target_array['purefa_info']['default']['array_name'] }}"
         fa_url: "{{ url }}"
         api_token: "{{ api }}"
 ```
 
-The complete bonus playbook is provided here: [purefa-pod-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.2-pod/purefa-pod-bonus.yaml)
+The complete bonus playbook is provided here: [purefa-async-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.3-aync-rep/purefa-async-bonus.yaml)
