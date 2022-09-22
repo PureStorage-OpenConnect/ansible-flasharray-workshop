@@ -1,5 +1,5 @@
 ---
-- name: ACTIVECLUSTER POD
+- name: ASYNC SETUP
   hosts: localhost
   connection: local
   gather_facts: true
@@ -9,21 +9,15 @@
     target_url: 10.34.56.243
     target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533
   tasks:
-    - name: CREATE POD
-      purestorage.flasharray.purefa_pod:
-        name: pod-1
-        fa_url: "{{ url }}"
-        api_token: "{{ api }}"
-
     - name: TARGET INFO
       purestorage.flasharray.purefa_info:
         fa_url: "{{ target_url }}"
         api_token: "{{ target_api }}"
       register: target_array
 
-    - name: STRETCH POD
-      purestorage.flasharray.purefa_pod:
-        name: pod-1
-        stretch: "{{ target_info['purefa_info']['default']['array_name'] }}"
+    - name: UPDATE PG
+      purestorage.flasharray.purefa_pg:
+        name: workshop-pg
+        target: "{{ target_array['purefa_info']['default']['array_name'] }}"
         fa_url: "{{ url }}"
         api_token: "{{ api }}"

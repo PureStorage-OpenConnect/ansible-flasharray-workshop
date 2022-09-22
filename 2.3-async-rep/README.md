@@ -117,7 +117,7 @@ Add the following information into the `vars` section of the playbook:
     target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533
 ```
 
-Replace the second task in your YAML file, the pod stretch task, with the following:
+Replace the task in your YAML file, with the following:
 
 ```
     - name: TARGET INFO
