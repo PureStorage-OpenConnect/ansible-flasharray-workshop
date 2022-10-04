@@ -134,4 +134,4 @@ Replace the task in your YAML file, with the following:
         api_token: "{{ api }}"
 ```
 
-The complete bonus playbook is provided here: [purefa-async-bonus.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.3-aync-rep/purefa-async-bonus.yml)
+The complete bonus playbook is provided here: [purefa-async-bonus.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.3-async-rep/purefa-async-bonus.yml)
