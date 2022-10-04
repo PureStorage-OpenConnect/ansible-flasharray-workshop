@@ -112,7 +112,7 @@ localhost                  : ok=3    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-connect.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.0-connect-arrays/purefa-connect.yaml).
+The finished Ansible Playbook is provided here: [purefa-connect.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.0-connect-arrays/purefa-connect.yaml).
 
 # Verifying the Solution
 
