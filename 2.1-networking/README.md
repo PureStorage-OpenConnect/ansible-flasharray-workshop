@@ -16,7 +16,7 @@ Demonstrate the use of the [purefa_network module](https://docs.ansible.com/ansi
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-network.yaml`.
+Using the text editor, create a new file called `purefa-network.yml`.
 
 ## Step 2:
 
@@ -101,7 +101,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-network.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.1-networking/purefa-network.yaml).
+The finished Ansible Playbook is provided here: [purefa-network.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.1-networking/purefa-network.yml).
 
 # Verifying the Solution
 

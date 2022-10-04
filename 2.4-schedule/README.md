@@ -17,7 +17,7 @@ Demonstrate the use of the [purefa_pgsched module](https://docs.ansible.com/ansi
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-sched.yaml`.
+Using the text editor, create a new file called `purefa-sched.yml`.
 
 ## Step 2:
 
@@ -123,7 +123,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-sched.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.4-schedule/purefa-sched.yaml).
+The finished Ansible Playbook is provided here: [purefa-sched.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.4-schedule/purefa-sched.yml).
 
 # Verifying the Solution
 
@@ -149,4 +149,4 @@ Replication schedules can have blackout periods assigned to them to stop replica
         api_token: "{{ api }}"
 ```
 
-The complete bonus playbook is provided here: [purefa-sched-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.4-schedule/purefa-sched-bonus.yaml)
+The complete bonus playbook is provided here: [purefa-sched-bonus.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.4-schedule/purefa-sched-bonus.yml)

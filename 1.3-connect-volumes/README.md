@@ -17,7 +17,7 @@ Demonstrate the use of the [purefa_host module](https://docs.ansible.com/ansible
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-connect.yaml`.
+Using the text editor, create a new file called `purefa-connect.yml`.
 
 ## Step 2:
 
@@ -95,7 +95,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-connect.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.3-connect-volumes/purefa-connect.yaml).
+The finished Ansible Playbook is provided here: [purefa-connect.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.3-connect-volumes/purefa-connect.yml).
 
 # Verifying the Solution
 
@@ -150,5 +150,5 @@ Run the playbook - Execute the following:
 
 and then execute the command `mount /workshop-mount`.
 
-The complete bonus Ansible Playbook is provided here: [purefa-connect-bonus.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.3-connect-volumes/purefa-connect-bonus.yaml).
+The complete bonus Ansible Playbook is provided here: [purefa-connect-bonus.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.3-connect-volumes/purefa-connect-bonus.yml).
 

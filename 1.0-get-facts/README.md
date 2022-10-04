@@ -19,7 +19,7 @@ Make sure you are in the home directory.
 
 ## Step 1:
 
-Using your favourite text editor, such as `vi`/`vim` or `nano`, create a new file called `purefa-info.yaml`.
+Using your favourite text editor, such as `vi`/`vim` or `nano`, create a new file called `purefa-info.yml`.
 
 ## Step 2:
 
@@ -262,7 +262,7 @@ localhost                  : ok=4    changed=0    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-info.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.0-get-facts/purefa-facts.yaml).
+The finished Ansible Playbook is provided here: [purefa-info.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.0-get-facts/purefa-facts.yml).
 
 # Going Further
 

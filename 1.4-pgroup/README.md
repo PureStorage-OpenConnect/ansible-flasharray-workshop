@@ -16,7 +16,7 @@ Demonstrate the use of the [purefa_pg module](https://docs.ansible.com/ansible/l
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-pgroup.yaml`.
+Using the text editor, create a new file called `purefa-pgroup.yml`.
 
 ## Step 2:
 
@@ -95,7 +95,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-pgroup.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.4-pgroup/purefa-pgroup.yaml).
+The finished Ansible Playbook is provided here: [purefa-pgroup.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.4-pgroup/purefa-pgroup.yml).
 
 # Verifying the Solution
 

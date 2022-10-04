@@ -19,7 +19,7 @@ In this example we will set the the NTP servers using the [purefa_ntp module](ht
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-infra.yaml`.
+Using the text editor, create a new file called `purefa-infra.yml`.
 
 ## Step 2:
 
@@ -119,7 +119,7 @@ localhost                  : ok=4    changed=3    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-infra.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.5-infra/purefa-infra.yaml).
+The finished Ansible Playbook is provided here: [purefa-infra.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.5-infra/purefa-infra.yml).
 
 # Verifying the Solution
 

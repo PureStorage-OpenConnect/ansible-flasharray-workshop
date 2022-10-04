@@ -16,7 +16,7 @@ Demonstrate the use of the [purefa_connect module](https://docs.ansible.com/ansi
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-connect.yaml`.
+Using the text editor, create a new file called `purefa-connect.yml`.
 
 ## Step 2:
 
@@ -112,7 +112,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-connect.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.0-connect-arrays/purefa-connect.yaml).
+The finished Ansible Playbook is provided here: [purefa-connect.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.0-connect-arrays/purefa-connect.yml).
 
 # Verifying the Solution
 

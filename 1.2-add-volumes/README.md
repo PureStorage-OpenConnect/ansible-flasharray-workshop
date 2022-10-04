@@ -16,7 +16,7 @@ Demonstrate the use of the [purefa_volume module](https://docs.ansible.com/ansib
 
 ## Step 1:
 
-Using the text editor, create a new file called `purefa-volume.yaml`.
+Using the text editor, create a new file called `purefa-volume.yml`.
 
 ## Step 2:
 
@@ -100,7 +100,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-volume.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.2-add-volumes/purefa-volume.yaml).
+The finished Ansible Playbook is provided here: [purefa-volume.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.2-add-volumes/purefa-volume.yml).
 
 # Verifying the Solution
 
