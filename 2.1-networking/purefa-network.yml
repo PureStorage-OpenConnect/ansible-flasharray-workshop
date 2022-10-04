@@ -1,0 +1,19 @@
+---
+- name: NETWORKING
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    url: 10.34.56.233
+    api: 89a9356f-c203-d263-8a89-c229486a13ba
+    target_url: 10.34.56.243
+    target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533
+  tasks:
+    - name: CREATE ASYNC CONNECTION
+      purestorage.flasharray.purefa_connect:
+        name: ct0.eth8
+        gateway: 10.34.56.1
+        address: "10.34.56.23/24"
+        mtu: 9000
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
