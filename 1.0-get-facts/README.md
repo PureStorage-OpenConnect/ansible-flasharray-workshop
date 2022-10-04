@@ -100,10 +100,10 @@ The output will look as follows.
 
 PLAY [GRAB FLASHARRAY FACTS] **********************************************************
 
-TASK [COLLECT FLASHARRAY FACTS] ***************************************************
+TASK [COLLECT FLASHARRAY FACTS] *******************************************************
 ok: [localhost]
 
-TASK [DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION] *****************************
+TASK [DISPLAY COMPLETE FLASHARRAY MINIMUM INFORMATION] ********************************
 ok: [localhost] => {
     "array_facts": {
         "changed": false,
