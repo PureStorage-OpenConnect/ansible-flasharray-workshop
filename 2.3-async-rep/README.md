@@ -94,7 +94,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-async.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.3-async-rep/purefa-async.yaml).
+The finished Ansible Playbook is provided here: [purefa-async.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.3-async-rep/purefa-async.yaml).
 
 # Verifying the Solution
 
@@ -134,4 +134,4 @@ Replace the task in your YAML file, with the following:
         api_token: "{{ api }}"
 ```
 
-The complete bonus playbook is provided here: [purefa-async-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.3-aync-rep/purefa-async-bonus.yaml)
+The complete bonus playbook is provided here: [purefa-async-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.3-aync-rep/purefa-async-bonus.yaml)

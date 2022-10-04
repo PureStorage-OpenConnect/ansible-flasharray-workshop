@@ -95,7 +95,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-pgroup.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/1.4-pgroup/purefa-pgroup.yaml).
+The finished Ansible Playbook is provided here: [purefa-pgroup.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.4-pgroup/purefa-pgroup.yaml).
 
 # Verifying the Solution
 

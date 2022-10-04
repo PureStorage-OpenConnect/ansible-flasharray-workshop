@@ -103,7 +103,7 @@ localhost                  : ok=3    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-pod.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.2-pod/purefa-pod.yaml).
+The finished Ansible Playbook is provided here: [purefa-pod.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.2-pods/purefa-pod.yaml).
 
 # Verifying the Solution
 
@@ -145,4 +145,4 @@ Replace the second task in your YAML file, the pod stretch task, with the follow
         api_token: "{{ api }}"
 ```
 
-The complete bonus playbook is provided here: [purefa-pod-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/2.2-pod/purefa-pod-bonus.yaml)
+The complete bonus playbook is provided here: [purefa-pod-bonus.yaml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/2.2-pods/purefa-pod-bonus.yaml)

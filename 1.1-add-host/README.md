@@ -93,7 +93,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-host.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/1.1-add-host/purefa-host.yaml).
+The finished Ansible Playbook is provided here: [purefa-host.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.1-add-host/purefa-host.yaml).
 
 # Verifying the Solution
 

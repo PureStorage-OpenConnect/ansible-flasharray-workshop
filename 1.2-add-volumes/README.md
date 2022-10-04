@@ -100,7 +100,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 # Solution
 
-The finished Ansible Playbook is provided here: [purefa-volume.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/main/1.2-add-volumes/purefa-volume.yaml).
+The finished Ansible Playbook is provided here: [purefa-volume.yml](https://github.com/PureStorage-OpenConnect/ansible-workshop/blob/master/1.2-add-volumes/purefa-volume.yaml).
 
 # Verifying the Solution
 
