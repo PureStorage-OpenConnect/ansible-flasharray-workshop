@@ -1,0 +1,32 @@
+---
+- name: FA-FILES SETUP
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    url: 10.34.56.233
+    api: 89a9356f-c203-d263-8a89-c229486a13ba
+    target_url: 10.34.56.243
+    target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533
+  tasks:
+    - name: CREATE FILESYSTEM
+      purestorage.flasharray.purefa_fs:
+        name: workshop
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
+
+    - name: CREATE DIRECTORY
+      purestorage.flasharray.purefa_directory:
+        name: dir1
+        filesystem: workshop
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
+
+    - name: EXPORT DIRECTORY
+      purestorage.flasharray.purefa_export:
+        name: workshop_dir
+        directory: dir1
+        filesystem: workshop
+        nfs_policy: nfs-simple
+        fa_url: "{{ url }}"
+        api_token: "{{ api }}"
