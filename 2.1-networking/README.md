@@ -31,8 +31,6 @@ Enter the following play definition into `purefa-network.yml`:
   vars:
     url: 10.34.56.233
     api: 89a9356f-c203-d263-8a89-c229486a13ba
-    target_url: 10.34.56.243
-    target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533
 ```
 
 - The `---` at the top of the file indicates that this is a YAML file.
@@ -42,8 +40,6 @@ Enter the following play definition into `purefa-network.yml`:
 - The `vars:` parameter is a group of parameters to be used in the playbook.
 - `url: 10.34.56.233` is the management IP address of your source FlashArray - change this reflect your local environment.
 - `api: 89a9356f-c203-d263-8a89-c229486a13ba` is the API token for a user on the source FlashArray - change this reflect your local environment.
-- `target_url: 10.34.56.243` is the management IP address of your target FlashArray - change this reflect your local environment.
-- `target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533` is the API token for a user on the target FlashArray - change this reflect your local environment.
 
 ## Step 3:
 
