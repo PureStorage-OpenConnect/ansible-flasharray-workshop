@@ -76,7 +76,7 @@ Note that these can also be used independently. Pick the type of replication you
 - The `fa_url: "{{url}}"` parameter tells the module to connect to the FlashArray Management IP address, which is stored as a variable `url` defined in the `vars` section of the playbook. This makes this array the source array in the replication pair.
 - The `api_token: "{{api}}"` parameter tells the module to connect to the FlashArray using this API token, which is stored as a variable `api` defined in the `vars` section of the playbook.
 - The `target_url: "{{target_url}}"` parameter tells the module the management IP address of the target FlashArray, which is stored as a variable `target_url` defined in the `vars` section of the playbook.
-- The `api_token: "{{target_api}}"` parameter tells the module the API token to use for the target FlashArray, which is stored as a variable `target_api` defined in the `vars` section of the playbook.
+- The `target_api: "{{target_api}}"` parameter tells the module the API token to use for the target FlashArray, which is stored as a variable `target_api` defined in the `vars` section of the playbook.
 
 Save the file and exit out of the editor.
 
