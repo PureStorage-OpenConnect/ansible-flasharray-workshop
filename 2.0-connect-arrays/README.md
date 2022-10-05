@@ -118,8 +118,8 @@ The finished Ansible Playbook is provided here: [purefa-connect.yml](https://git
 
 Login to the source Pure Storage FlashArray with your web browser using the management IP address you set in your YAML file.
 
-Navigate to the Prtection -> Array window to see the array connections that have been created from the source side of the connections.
+Navigate to the Protection -> Array window to see the array connections that have been created from the source side of the connections.
 
 Login to the target Pure Storage FlashArray with your web browser using the management IP address you set in your YAML file.
 
-Navigate to the Prtection -> Array window to see the array connections that have been created from the target side of the connections.
+Navigate to the Protection -> Array window to see the array connections that have been created from the target side of the connections.
