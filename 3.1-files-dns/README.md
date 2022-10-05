@@ -33,8 +33,6 @@ Enter the following play definition into `purefa-file-dns.yml`:
   vars:
     url: 10.34.56.233
     api: 89a9356f-c203-d263-8a89-c229486a13ba
-    target_url: 10.34.56.243
-    target_api: 33ed2a76-3e45-12dd-cf55-d4489ac44533
 ```
 
 - The `---` at the top of the file indicates that this is a YAML file.
