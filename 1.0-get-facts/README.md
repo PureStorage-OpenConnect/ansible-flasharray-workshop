@@ -135,7 +135,7 @@ ok: [localhost] => {
                     "2.1"
                 ],
                 "array_model": "FA-405",
-                "array_name": "sn1-405-c07-27",
+                "array_name": "acme-array-1",
                 "connected_arrays": 0,
                 "connection_key": "89a9356f-c203-d263-8a89-c229486a13ba",
                 "hostgroups": 4,
