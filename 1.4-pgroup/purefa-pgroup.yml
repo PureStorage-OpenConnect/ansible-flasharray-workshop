@@ -9,7 +9,7 @@
   tasks:
     - name: CREATE PROTECTION GROUP
       purestorage.flasharray.purefa_pg:
-        name: workshop_pg
+        name: workshop-pg
         volume:
           - volume_b
           - volume_c
