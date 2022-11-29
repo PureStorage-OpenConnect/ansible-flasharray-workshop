@@ -1,6 +1,20 @@
 # Ansible FlashArray Workshop
 This content is a toolit for demonstrating Ansible's capabilities on the Pure Storage FlashArray by providing hands-on, or self-paced training.
 
+## Workshop Pre-Requisites
+You will need access to a Linux server with the latest version of Ansible installed. Thi shost should have either iSCSI or FC connectivity to the FlashArray(s) and network access to the FlashArray management port.
+
+This will provde the FlashArray Collections, but to ensure you have the latest version of the Collection please run the following command:
+
+`ansible-galaxy collection install purestorage.flasharray --force`
+
+To run Section 1 of the Workshop will require one FlashArray, running a minimum Purity//FA of 6.1.3. This should have iSCSI or FC connectivity that will allow
+connectivity to your Linux host.
+
+Section 2 of the Workshop requires a second FlashArray, running the same Purity//FA version as your first array. There should be network connectivity between the two arrays to allow the replication exercises to run correctly.
+
+Section 3 of the Workshop requires that your FlashArrays are enabled for FA-Files.
+
 ## Section 1 - Ansible FlashArray Basic Exercises
 
  - [Exercise 1.0 - Using the purefa_info module](1.0-get-facts)
