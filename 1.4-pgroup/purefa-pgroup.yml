@@ -10,7 +10,7 @@
     - name: CREATE PROTECTION GROUP
       purestorage.flasharray.purefa_pg:
         name: workshop_pg
-        volumes:
+        volume:
           - volume_b
           - volume_c
         fa_url: "{{ url }}"
