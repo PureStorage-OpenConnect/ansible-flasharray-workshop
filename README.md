@@ -41,3 +41,28 @@ This section requires that your FlashArray has been enabled by Pure Support to u
  - [Exercise 3.0 - Creating directories and exports on a FlashArray](3.0-exports)
  - [Exercise 3.1 - Configuring FA-Files DNS on a FlashArray](3.1-files-dns)
  - [Exercise 3.2 - Configuring FA-Files replication](3.2-files-replication)
+
+## Advanced Information
+
+There is a lot of file editing involved in the above exercises, particularly when setting the FA IP and API tokens in every playbook.
+
+An advanced method to use to reduce the amount of editing involves using Ansible command-line variabels using the `-e` switch for `ansible-playbook` and shell variables.
+
+Set the following shell variables before running any playbooks:
+
+```
+# export PUREFA_API=<array 1 api token>
+# export PUREFA_URL=<array 1 IP address/FQDN>
+# export TARGET_API=<array 2 api token>
+# export TARGET_URL=<array2 IP address/FQDN>
+```
+
+You can then run each exercise playbook using the following commands which will override the parameters in the playbooks for the variables required in each task.
+
+`ansible-playbook -e url=$PUREFA_URL -e api=$PUREFA_API <exercise playbook>.yml`
+
+You can use as many `-e` switches as necessary, depending on how many and which parameters you want to override through the command-line.
+
+Remmeber that if you don't specifiy a parameter using `-e` that is required by a task, the task will use the parameter value set in the `vars:` section of the playbook.
+
+Not all the playbooks provided have been validated using this Advanced Information section, so use at your own risk.
